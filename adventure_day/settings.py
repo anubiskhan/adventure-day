@@ -78,14 +78,14 @@ DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     ),
-    'test': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'adventure_day',
-        'USER': 'kellyschroeder',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    # 'test': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'adventure_day',
+    #     'USER': 'kellyschroeder',
+    #     'PASSWORD': '',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '5432',
+    # }
 }
 
 
