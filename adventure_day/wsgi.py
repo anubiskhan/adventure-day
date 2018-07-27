@@ -1,5 +1,5 @@
 """
-WSGI config for quantified_self_django project.
+WSGI config for adventure_day project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "quantified_self_django.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "adventure_day.settings")
 
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
