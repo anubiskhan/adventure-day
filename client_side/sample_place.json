@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "code": 200,
+    "requestId": "5b5ac130f594df0bab988f51"
+  },
+  "response": {
+    "warning": {
+      "text":
+        "There aren't a lot of results for \"brewery.\" Try something more general, reset your filters, or expand the search area."
+    },
+    "suggestedRadius": 4570,
+    "headerLocation": "Northglenn",
+    "headerFullLocation": "Northglenn",
+    "headerLocationGranularity": "city",
+    "query": "brewery",
+    "totalResults": 15,
+    "suggestedBounds": {
+      "ne": {
+        "lat": 39.965774149611285,
+        "lng": -104.96133031022272
+      },
+      "sw": {
+        "lat": 39.8959560581631,
+        "lng": -105.00272058848675
+      }
+    },
+    "groups": [
+      {
+        "type": "Recommended Places",
+        "name": "recommended",
+        "items": [
+          {
+            "reasons": {
+              "count": 0,
+              "items": [
+                {
+                  "summary": "This spot is popular",
+                  "type": "general",
+                  "reasonName": "globalInteractionReason"
+                }
+              ]
+            },
+            "venue": {
+              "id": "51aa543a498edfe7da940750",
+              "name": "Beer By Design",
+              "contact": {},
+              "location": {
+                "lat": 39.899129607774384,
+                "lng": -104.96321168650745,
+                "labeledLatLngs": [
+                  {
+                    "label": "display",
+                    "lat": 39.899129607774384,
+                    "lng": -104.96321168650745
+                  }
+                ],
+                "distance": 701,
+                "postalCode": "80233",
+                "cc": "US",
+                "city": "Northglenn",
+                "state": "CO",
+                "country": "United States",
+                "formattedAddress": ["Northglenn, CO 80233", "United States"]
+              },
+              "categories": [
+                {
+                  "id": "50327c8591d4c4b30a586d5d",
+                  "name": "Brewery",
+                  "pluralName": "Breweries",
+                  "shortName": "Brewery",
+                  "icon": {
+                    "prefix":
+                      "https://ss3.4sqi.net/img/categories_v2/food/brewery_",
+                    "suffix": ".png"
+                  },
+                  "primary": true
+                }
+              ],
+              "verified": false,
+              "stats": {
+                "tipCount": 0,
+                "usersCount": 0,
+                "checkinsCount": 0,
+                "visitsCount": 0
+              },
+              "beenHere": {
+                "count": 0,
+                "lastCheckinExpiredAt": 0,
+                "marked": false,
+                "unconfirmedCount": 0
+              },
+              "photos": {
+                "count": 0,
+                "groups": []
+              },
+              "hereNow": {
+                "count": 0,
+                "summary": "Nobody here",
+                "groups": []
+              }
+            },
+            "referralId": "e-0-51aa543a498edfe7da940750-0"
+          },
+          {
+            "reasons": {
+              "count": 0,
+              "items": [
+                {
+                  "summary": "This spot is popular",
+                  "type": "general",
+                  "reasonName": "globalInteractionReason"
+                }
+              ]
+            },
+            "venue": {
+              "id": "40e0b100f964a52027031fe3",
+              "name": "C.B. & Potts",
+              "contact": {},
+              "location": {
+                "address": "1257 W 120th Ave",
+                "crossStreet": "Mariposa St",
+                "lat": 39.91487230190733,
+                "lng": -105.00083921220202,
+                "labeledLatLngs": [
+                  {
+                    "label": "display",
+                    "lat": 39.91487230190733,
+                    "lng": -105.00083921220202
+                  }
+                ],
+                "distance": 4359,
+                "postalCode": "80234",
+                "cc": "US",
+                "city": "Westminster",
+                "state": "CO",
+                "country": "United States",
+                "formattedAddress": [
+                  "1257 W 120th Ave (Mariposa St)",
+                  "Westminster, CO 80234",
+                  "United States"
+                ]
+              },
+              "categories": [
+                {
+                  "id": "50327c8591d4c4b30a586d5d",
+                  "name": "Brewery",
+                  "pluralName": "Breweries",
+                  "shortName": "Brewery",
+                  "icon": {
+                    "prefix":
+                      "https://ss3.4sqi.net/img/categories_v2/food/brewery_",
+                    "suffix": ".png"
+                  },
+                  "primary": true
+                }
+              ],
+              "verified": true,
+              "stats": {
+                "tipCount": 0,
+                "usersCount": 0,
+                "checkinsCount": 0,
+                "visitsCount": 0
+              },
+              "beenHere": {
+                "count": 0,
+                "lastCheckinExpiredAt": 0,
+                "marked": false,
+                "unconfirmedCount": 0
+              },
+              "photos": {
+                "count": 0,
+                "groups": []
+              },
+              "hereNow": {
+                "count": 0,
+                "summary": "Nobody here",
+                "groups": []
+              }
+            },
+            "referralId": "e-0-40e0b100f964a52027031fe3-1"
+          },
+          {
+            "reasons": {
+              "count": 0,
+              "items": [
+                {
+                  "summary": "This spot is popular",
+                  "type": "general",
+                  "reasonName": "globalInteractionReason"
+                }
+              ]
+            },
+            "venue": {
+              "id": "4bbaac3e98c7ef3b186c3302",
+              "name": "Rock Bottom Brewery",
+              "contact": {},
+              "location": {
+                "address": "14694 Orchard Pkwy Unit 400",
+                "crossStreet": "Orchard Town Center & Town Square",
+                "lat": 39.9626006,
+                "lng": -104.9929668,
+                "labeledLatLngs": [
+                  {
+                    "label": "display",
+                    "lat": 39.9626006,
+                    "lng": -104.9929668
+                  }
+                ],
+                "distance": 8085,
+                "postalCode": "80023",
+                "cc": "US",
+                "city": "Westminster",
+                "state": "CO",
+                "country": "United States",
+                "formattedAddress": [
+                  "14694 Orchard Pkwy Unit 400 (Orchard Town Center & Town Square)",
+                  "Westminster, CO 80023",
+                  "United States"
+                ]
+              },
+              "categories": [
+                {
+                  "id": "50327c8591d4c4b30a586d5d",
+                  "name": "Brewery",
+                  "pluralName": "Breweries",
+                  "shortName": "Brewery",
+                  "icon": {
+                    "prefix":
+                      "https://ss3.4sqi.net/img/categories_v2/food/brewery_",
+                    "suffix": ".png"
+                  },
+                  "primary": true
+                }
+              ],
+              "verified": false,
+              "stats": {
+                "tipCount": 0,
+                "usersCount": 0,
+                "checkinsCount": 0,
+                "visitsCount": 0
+              },
+              "beenHere": {
+                "count": 0,
+                "lastCheckinExpiredAt": 0,
+                "marked": false,
+                "unconfirmedCount": 0
+              },
+              "photos": {
+                "count": 0,
+                "groups": []
+              },
+              "hereNow": {
+                "count": 0,
+                "summary": "Nobody here",
+                "groups": []
+              }
+            },
+            "flags": {
+              "outsideRadius": true
+            },
+            "referralId": "e-0-4bbaac3e98c7ef3b186c3302-2"
+          }
+        ]
+      }
+    ]
+  }
+}
