@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'client_side',
+    'dj_database_url',
 ]
 
 MIDDLEWARE = [
