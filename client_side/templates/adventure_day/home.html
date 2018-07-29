@@ -1,5 +1,16 @@
 {% extends "adventure_day/base.html" %}
 {% block content %}
-
-<a href="https://www.google.com/maps/dir/?api=1&origin=39.8956,-104.9564&destination=39.7508,-104.9966&waypoints=periodic%20brewing|station26|fallingrock&travelmode=walking">Go on an adventure!</a>
+<div class="container">
+  <div class="form-group row text-center">
+    <div class="col-xs-2">
+      <label for="start-address">Start:</label>
+      <input id="start-address" type="text" class="form-control" placeholder="Starting from...">
+    </div>
+    <div class="col-xs-2">
+      <label for="end-address">End:</label>
+      <input id="end-address" type="text" class="form-control" placeholder="Ending at...">
+    </div>
+  </div>
+  <a href="https://www.google.com/maps/dir/?api=1&origin=39.8956,-104.9564&destination=39.7508,-104.9966&waypoints=periodic%20brewing|station26|fallingrock&travelmode=walking">Go on an adventure!</a>
+</div>
 {% endblock %}
