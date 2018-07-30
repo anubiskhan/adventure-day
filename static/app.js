@@ -53,6 +53,7 @@ function getCurrentLocation() {
 }
 
 function getAddress(result) {
+  console.log(result);
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${result.location.lat.toFixed(5)},${result.location.lng.toFixed(5)}`)
   .then(response => {
     return response.json();
