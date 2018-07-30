@@ -15,7 +15,8 @@ def home(request):
 def places(request):
     origin = request.META['QUERY_STRING'].split('&')[0].split('=')[1]
     type = request.META['QUERY_STRING'].split('&')[1].split('=')[1].lower()
-    places = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius=1609&type={type}&key={key}'.format(origin=origin, type=type, key=GOOGLE_MAPS_PLATFORM_API_KEY))
+    radius = request.META['QUERY_STRING'].split('&')[2].split('=')[1]
+    places = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius={radius}&type={type}&key={key}'.format(origin=origin, radius=radius, type=type, key=GOOGLE_MAPS_PLATFORM_API_KEY))
     return HttpResponse(places)
 
 def latlong(request):
