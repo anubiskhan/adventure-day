@@ -9,14 +9,6 @@ async function createAdventure() {
   let completeRoute = await getToWalking(placesList, originString)
 }
 
-function handleAddressField() {
-  if (document.getElementById('start-address-field').value == "") {
-    return getCurrentLocation()
-  } else {
-    return document.getElementById('start-address-field').value.split(' ').join('+')
-  }
-};
-
 function createOrigin(result) {
   return `${result.lat},${result.lng}`;
 }
@@ -47,20 +39,28 @@ function getToWalking(placesList, origin) {
   location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${placeNames[0]}|${placeNames[1]}|${placeNames[2]}&waypoint_place_ids=${placeIds[0]}|${placeIds[1]}|${placeIds[2]}&travelmode=walking`
 }
 
-async function getCurrentLocation() {
-  let currentLatLong = await getCurrentLatLong()
-  getAddress(currentLatLong)
-}
+async function handleAddressField() {
+  if (document.getElementById('start-address-field').value == "") {
+    return await getCurrentLocation()
+  } else {
+    return document.getElementById('start-address-field').value.split(' ').join('+')
+  }
+};
 
-function getCurrentLatLong() {
-  return fetch('currentloc/')
-  .then(response => {
-    return response.json();
-  })
+function getCurrentLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      getAddress(pos);
+    })
+  }
 }
 
 function getAddress(result) {
-  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${result.location.lat.toFixed(5)},${result.location.lng.toFixed(5)}`)
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${result.lat.toFixed(5)},${result.lng.toFixed(5)}`)
   .then(response => {
     return response.json();
   })
