@@ -1,45 +1,43 @@
-function createAdventure() {
+async function createAdventure() {
   var startAddressRaw = document.getElementById('start-address-field').value;
   var startAddressFormatted = startAddressRaw.split(' ').join('+')
-  fetch(`latlong/?address=${startAddressFormatted}`)
+  let addressInformation = await fetch(`latlong/?address=${startAddressFormatted}`)
                           .then(response => {
                             return response.json();
                           })
-                          .then(result => {
-                            createOrigin(result.results[0].geometry.location);
-                          });
+  let originString = createOrigin(addressInformation.results[0].geometry.location);
+  let placesList = await getPlaces(originString)
+  let completeRoute = await getToWalking(placesList, originString)
 }
 
 function createOrigin(result) {
-  var origin = `${result.lat},${result.lng}`;
-  getPlaces(origin);
+  return `${result.lat},${result.lng}`;
 }
 
 function getPlaces(origin) {
   var locationType = document.getElementById('location-type-selector').value;
-  fetch(`places/?origin=${origin}&type=${locationType}`)
+  return fetch(`places/?origin=${origin}&type=${locationType}`)
   .then(response => {
     return response.json();
   })
-  .then(result => {
-    getToWalking(result.results, origin);
-  });
 }
 
-function getToWalking(results, origin) {
-  var cap = results.length
+function getToWalking(placesList, origin) {
+  var placesArray = placesList.results
+  var cap = placesArray.length
   var placeNames = [
-    results[Math.floor(Math.random() * cap)].name.split(' ').join('+'),
-    results[Math.floor(Math.random() * cap)].name.split(' ').join('+'),
-    results[Math.floor(Math.random() * cap)].name.split(' ').join('+')
+    placesArray[Math.floor(Math.random() * cap)].name.split(' ').join('+'),
+    placesArray[Math.floor(Math.random() * cap)].name.split(' ').join('+'),
+    placesArray[Math.floor(Math.random() * cap)].name.split(' ').join('+')
   ]
   var placeIds = [
-    results[Math.floor(Math.random() * cap)].place_id,
-    results[Math.floor(Math.random() * cap)].place_id,
-    results[Math.floor(Math.random() * cap)].place_id
+    placesArray[Math.floor(Math.random() * cap)].place_id,
+    placesArray[Math.floor(Math.random() * cap)].place_id,
+    placesArray[Math.floor(Math.random() * cap)].place_id
   ]
   var destination = origin
-  location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${placeNames[0]}|${placeNames[1]}|${placeNames[2]}&waypoint_place_ids=${placeIds[0]}|${placeIds[1]}|${placeIds[2]}&travelmode=walking`;
+  // window.open(`https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${placeNames[0]}|${placeNames[1]}|${placeNames[2]}&waypoint_place_ids=${placeIds[0]}|${placeIds[1]}|${placeIds[2]}&travelmode=walking`);
+  location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${placeNames[0]}|${placeNames[1]}|${placeNames[2]}&waypoint_place_ids=${placeIds[0]}|${placeIds[1]}|${placeIds[2]}&travelmode=walking`
 }
 
 function getCurrentLocation() {
