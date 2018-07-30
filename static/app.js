@@ -17,8 +17,8 @@ function createOrigin(result) {
 }
 
 function getPlaces(origin) {
-  // data = {origin: origin}
-  fetch(`places/?${origin}`)
+  var locationType = document.getElementById('location-type-selector').value;
+  fetch(`places/?origin=${origin}&type=${locationType}`)
   .then(response => {
     return response.json();
   })
@@ -28,7 +28,9 @@ function getPlaces(origin) {
 }
 
 function getToWalking(results, origin) {
-  var places = [results[Math.floor(Math.random() * 20)].name.split(' ').join('+'), results[Math.floor(Math.random() * 20)].name.split(' ').join('+'), results[Math.floor(Math.random() * 20)].name.split(' ').join('+')]
+  var places = [results[Math.floor(Math.random() * 20)].name.split(' ').join('+'),
+                results[Math.floor(Math.random() * 20)].name.split(' ').join('+'),
+                results[Math.floor(Math.random() * 20)].name.split(' ').join('+')]
   var destination = origin
   location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${places[0]}|${places[1]}|${places[2]}&travelmode=walking`;
 }
