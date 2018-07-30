@@ -12,3 +12,4 @@ virtualenv==16.0.0
 whitenoise==3.3.1
 django-bootstrap3
 python-decouple
+requests
