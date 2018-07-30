@@ -40,13 +40,15 @@ function getToWalking(placesList, origin) {
   location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${placeNames[0]}|${placeNames[1]}|${placeNames[2]}&waypoint_place_ids=${placeIds[0]}|${placeIds[1]}|${placeIds[2]}&travelmode=walking`
 }
 
-function getCurrentLocation() {
-  fetch('currentloc/')
+async function getCurrentLocation() {
+  let currentLatLong = await getCurrentLatLong()
+  getAddress(currentLatLong)
+}
+
+function getCurrentLatLong() {
+  return fetch('currentloc/')
   .then(response => {
     return response.json();
-  })
-  .then(result => {
-    getAddress(result)
   })
 }
 
