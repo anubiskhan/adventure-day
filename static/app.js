@@ -36,6 +36,12 @@ function getToWalking(results, origin) {
 function getCurrentLocation() {
   $.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_MAPS_PLATFORM_API_KEY}`)
   .then(response => {
-    $("#start-address-field").val(`${response.location.lat.toFixed(5)},${response.location.lng.toFixed(5)}`)
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${response.location.lat.toFixed(5)},${response.location.lng.toFixed(5)}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      $("#start-address-field").val(`${result.results[0].formatted_address}`)
+    })
   })
 }
