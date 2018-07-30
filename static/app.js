@@ -17,7 +17,7 @@ function createOrigin(result) {
 }
 
 function getPlaces(origin) {
-  data = {origin: origin}
+  // data = {origin: origin}
   fetch(`places/?${origin}`)
   .then(response => {
     return response.json();
@@ -29,8 +29,13 @@ function getPlaces(origin) {
 
 function getToWalking(results, origin) {
   var places = [results[Math.floor(Math.random() * 20)].name.split(' ').join('+'), results[Math.floor(Math.random() * 20)].name.split(' ').join('+'), results[Math.floor(Math.random() * 20)].name.split(' ').join('+')]
-  var destination = "39.7508,-104.9966"
+  var destination = origin
   location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${places[0]}|${places[1]}|${places[2]}&travelmode=walking`;
 }
-// https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.7508,-104.9966&radius=1609&type=park&key=AIzaSyC_n7L6BbBnoCl6BxJcj3qSo_jurQLueCE
-// results[1].name
+
+function getCurrentLocation() {
+  $.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_MAPS_PLATFORM_API_KEY}`)
+  .then(response => {
+    $("#start-address-field").val(`${response.location.lat.toFixed(5)},${response.location.lng.toFixed(5)}`)
+  })
+}
