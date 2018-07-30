@@ -1,6 +1,5 @@
 async function createAdventure() {
-  var startAddressRaw = document.getElementById('start-address-field').value;
-  var startAddressFormatted = startAddressRaw.split(' ').join('+')
+  let startAddressFormatted = await handleAddressField()
   let addressInformation = await fetch(`latlong/?address=${startAddressFormatted}`)
                           .then(response => {
                             return response.json();
@@ -9,6 +8,14 @@ async function createAdventure() {
   let placesList = await getPlaces(originString)
   let completeRoute = await getToWalking(placesList, originString)
 }
+
+function handleAddressField() {
+  if (document.getElementById('start-address-field').value == "") {
+    return getCurrentLocation()
+  } else {
+    return document.getElementById('start-address-field').value.split(' ').join('+')
+  }
+};
 
 function createOrigin(result) {
   return `${result.lat},${result.lng}`;
