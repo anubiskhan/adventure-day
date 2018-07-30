@@ -13,10 +13,14 @@ def home(request):
 def places(request):
     origin = request.META['QUERY_STRING'].split('&')[0].split('=')[1]
     type = request.META['QUERY_STRING'].split('&')[1].split('=')[1].lower()
-    places = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius=1609&type={type}&key=AIzaSyC_n7L6BbBnoCl6BxJcj3qSo_jurQLueCE'.format(origin=origin, type=type))
+    places = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius=1609&type={type}&key={key}'.format(origin=origin, type=type, key=GOOGLE_MAPS_PLATFORM_API_KEY))
     return HttpResponse(places)
 
 def latlong(request):
     address = request.META['QUERY_STRING'].split('=')[1]
     latlong = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={key}'.format(address=address, key=GOOGLE_MAPS_PLATFORM_API_KEY))
     return HttpResponse(latlong)
+
+def currentloc(request):
+    cur_location = requests.post('https://www.googleapis.com/geolocation/v1/geolocate?key={key}'.format(key=GOOGLE_MAPS_PLATFORM_API_KEY))
+    return HttpResponse(cur_location)
