@@ -2,7 +2,7 @@ var GOOGLE_MAPS_PLATFORM_API_KEY = 'AIzaSyC_n7L6BbBnoCl6BxJcj3qSo_jurQLueCE'
 function createAdventure() {
   var startAddressRaw = document.getElementById('start-address-field').value;
   var startAddressFormatted = startAddressRaw.split(' ').join('+')
-  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${startAddressFormatted}&key=${GOOGLE_MAPS_PLATFORM_API_KEY}`)
+  fetch(`latlong/?address=${startAddressFormatted}`)
                           .then(response => {
                             return response.json();
                           })
