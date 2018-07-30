@@ -27,11 +27,19 @@ function getPlaces(origin) {
 }
 
 function getToWalking(results, origin) {
-  var places = [results[Math.floor(Math.random() * 20)].name.split(' ').join('+'),
-                results[Math.floor(Math.random() * 20)].name.split(' ').join('+'),
-                results[Math.floor(Math.random() * 20)].name.split(' ').join('+')]
+  var cap = results.length
+  var placeNames = [
+    results[Math.floor(Math.random() * cap)].name.split(' ').join('+'),
+    results[Math.floor(Math.random() * cap)].name.split(' ').join('+'),
+    results[Math.floor(Math.random() * cap)].name.split(' ').join('+')
+  ]
+  var placeIds = [
+    results[Math.floor(Math.random() * cap)].place_id,
+    results[Math.floor(Math.random() * cap)].place_id,
+    results[Math.floor(Math.random() * cap)].place_id
+  ]
   var destination = origin
-  location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${places[0]}|${places[1]}|${places[2]}&travelmode=walking`;
+  location.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${placeNames[0]}|${placeNames[1]}|${placeNames[2]}&waypoint_place_ids=${placeIds[0]}|${placeIds[1]}|${placeIds[2]}&travelmode=walking`;
 }
 
 function getCurrentLocation() {
