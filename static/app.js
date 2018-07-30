@@ -45,7 +45,7 @@ function getToWalking(results, origin) {
 function getCurrentLocation() {
   fetch('currentloc/')
   .then(response => {
-    console.log(response);
+    console.log(response.json());
     return response.json();
   })
   .then(result => {
