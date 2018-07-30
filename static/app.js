@@ -10,14 +10,12 @@ async function createAdventure() {
 }
 
 function handleAddressField() {
-  // let addressFieldTest = document.getElementById('start-address-field').value;
   if (document.getElementById('start-address-field').value == "") {
     return getCurrentLocation()
   } else {
     return document.getElementById('start-address-field').value.split(' ').join('+')
   }
-  // var startAddressFormatted = startAddressRaw.split(' ').join('+')
-}
+};
 
 function createOrigin(result) {
   return `${result.lat},${result.lng}`;
