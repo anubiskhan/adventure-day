@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'dj_database_url',
     'bootstrap3',
     'googlemaps',
+    'ortools',
 ]
 
 MIDDLEWARE = [
