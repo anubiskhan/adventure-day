@@ -13,3 +13,4 @@ whitenoise==3.3.1
 django-bootstrap3
 python-decouple
 requests
+googlemaps

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'client_side',
     'dj_database_url',
-    'bootstrap3'
+    'bootstrap3',
+    'googlemaps',
 ]
 
 MIDDLEWARE = [
