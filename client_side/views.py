@@ -8,6 +8,7 @@ import requests
 import random
 import json
 from django.conf import settings
+from .shortest_route_service import ShortestRoute
 
 GOOGLE_MAPS_PLATFORM_API_KEY = settings.GOOGLE_MAPS_PLATFORM_API_KEY
 
