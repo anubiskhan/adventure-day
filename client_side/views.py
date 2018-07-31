@@ -28,11 +28,14 @@ def places(request):
     origin = request.META['QUERY_STRING'].split('&')[0].split('=')[1]
     type = request.META['QUERY_STRING'].split('&')[1].split('=')[1].lower()
     radius = request.META['QUERY_STRING'].split('&')[2].split('=')[1]
+    search_type = request.META['QUERY_STRING'].split('&')[3].split('=')[1]
     places = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius={radius}&type={type}&key={key}'.format(origin=origin, radius=radius, type=type, key=GOOGLE_MAPS_PLATFORM_API_KEY))
     places_list = places.json()['results']
     random.shuffle(places_list)
-    ordered_places = get_matrix(places_list[:3], origin)
-    # return HttpResponse(places)
+    if search_type == 'optimized':
+        ordered_places = get_matrix(places_list[:3], origin)
+    else:
+        ordered_places = get_random_order(places_list[:3], origin)
     return HttpResponse(json.dumps(ordered_places))
 
 def get_matrix(array, origin):
@@ -104,3 +107,10 @@ def shortest_route(matrix, lat_long_list):
         index = assignment.Value(routing.NextVar(index))
       route += str(place_lat_long[routing.IndexToNode(index)])
       return route.split(' -> ')
+
+def get_random_order(array, origin):
+    place_1 = '{lat},{lng}'.format(lat=array[0]['geometry']['location']['lat'], lng=array[0]['geometry']['location']['lng'])
+    place_2 = '{lat},{lng}'.format(lat=array[1]['geometry']['location']['lat'], lng=array[1]['geometry']['location']['lng'])
+    place_3 = '{lat},{lng}'.format(lat=array[2]['geometry']['location']['lat'], lng=array[2]['geometry']['location']['lng'])
+    lat_long_list = [origin, place_1, place_2, place_3, origin]
+    return lat_long_list

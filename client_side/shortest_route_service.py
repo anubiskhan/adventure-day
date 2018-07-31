@@ -14,6 +14,13 @@ class ShortestRoute():
         returned_matrix = response.json()
         return shortest_route(returned_matrix, lat_long_list)
 
+    def get_random_order(array, origin):
+        place_1 = '{lat},{lng}'.format(lat=array[0]['geometry']['location']['lat'], lng=array[0]['geometry']['location']['lng'])
+        place_2 = '{lat},{lng}'.format(lat=array[1]['geometry']['location']['lat'], lng=array[1]['geometry']['location']['lng'])
+        place_3 = '{lat},{lng}'.format(lat=array[2]['geometry']['location']['lat'], lng=array[2]['geometry']['location']['lng'])
+        lat_long_list = [origin, place_1, place_2, place_3, origin]
+        return lat_long_list
+
     def create_distance_callback(dist_matrix):
         def distance_callback(from_node, to_node):
             return int(dist_matrix[from_node][to_node])

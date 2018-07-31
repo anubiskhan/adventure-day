@@ -1,11 +1,11 @@
-async function createAdventure() {
+async function createAdventure(searchType) {
   let startAddressFormatted = await handleAddressField()
   let addressInformation = await fetch(`latlong/?address=${startAddressFormatted}`)
                           .then(response => {
                             return response.json();
                           })
   let originString = createOrigin(addressInformation.results[0].geometry.location);
-  let placesList = await getPlaces(originString)
+  let placesList = await getPlaces(originString, searchType)
   let completeRoute = await getToWalking(placesList)
 }
 
@@ -13,10 +13,10 @@ function createOrigin(result) {
   return `${result.lat},${result.lng}`;
 }
 
-function getPlaces(origin) {
+function getPlaces(origin, searchType) {
   var locationType = document.getElementById('location-type-selector').value;
   var searchRadius = document.getElementById('radius-selector').value;
-  return fetch(`places/?origin=${origin}&type=${locationType}&radius=${searchRadius}`)
+  return fetch(`places/?origin=${origin}&type=${locationType}&radius=${searchRadius}&search=${searchType}`)
   .then(response => {
     return response.json();
   })
