@@ -4,7 +4,7 @@ Adventure Day will provide a randomly generated walking route to a user, for adv
 
 ## Using the application
 
-This app was decide with ease of use in mind, and as such has a few barriers to entry as possible. A user simply needs to visit the [site](https://adventure-day.herokuapp.com/). Adventure day works as follows:
+This app was designed with ease of use in mind, and as such has a few barriers to entry as possible. A user simply needs to visit the [site](https://adventure-day.herokuapp.com/). Adventure day works as follows:
 - A route from 4 inputs
   - Origin
     - The form auto-populates with user's geolocation if permission is given
