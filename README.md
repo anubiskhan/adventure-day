@@ -13,12 +13,12 @@ This app was decide with ease of use in mind, and as such has a few barriers to 
   - A search radius around the origin in which to search for places
   - A randomized route button OR an optimized route button
 
-![Using Adventure Day in browser](static/adventure_day_walkthrough.gif)
+![Using Adventure Day in browser]()
 
 
 Once a user selects a route they will be taken to a Google Maps page or, if the user is on a mobile device, a Google Maps App. After that all one has to do is press 'Start' in the app and they will be off!
 
-![Using Adventure Day in browser](static/adventure_day_mobile.gif)
+![Using Adventure Day in browser]()
 
 ## Setup for cloning and working in this project (Mac)
 
@@ -87,7 +87,7 @@ You're all set! If you encountered any setup errors let me know in the comments.
 
 ## Traveling Salesman Problem
 
-One thing I was particularly excited to get implemented on this project is a TSP solution for finding the shortest route using the randomly generated places. 
+One thing I was particularly excited to get implemented on this project is a TSP solution for finding the shortest route using the randomly generated places.
 
 ## Additional Resources
 
