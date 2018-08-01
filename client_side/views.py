@@ -35,8 +35,10 @@ def places(request):
     if len(places_list) < 3:
         return HttpResponse(json.dumps('Not enough places'))
     random.shuffle(places_list)
+    waypoints = places_list[:3]
     if search_type == 'optimized':
-        ordered_places = get_matrix(places_list[:3], origin)
+        ordered_places = get_matrix(waypoints, origin)
     else:
-        ordered_places = get_random_order(places_list[:3], origin)
+        ordered_places = get_random_order(waypoints, origin)
+    # place_list = places_handler(waypoints, ordered_places)
     return HttpResponse(json.dumps(ordered_places))

@@ -27,8 +27,15 @@ function getPlaces(origin, searchType) {
 }
 
 function getToWalking(placesList) {
+  let placeName1 = placesList[1][0]
+  let placeName2 = placesList[2][0]
+  let placeName3 = placesList[3][0]
+  let placeId1 = placesList[1][1]
+  let placeId2 = placesList[2][1]
+  let placeId3 = placesList[3][1]
   // window.open(`https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${placeNames[0]}|${placeNames[1]}|${placeNames[2]}&waypoint_place_ids=${placeIds[0]}|${placeIds[1]}|${placeIds[2]}&travelmode=walking`);
-  location.href = `https://www.google.com/maps/dir/?api=1&origin=${placesList[0]}&destination=${placesList[4]}&waypoints=${placesList[1]}|${placesList[2]}|${placesList[3]}&travelmode=walking`
+  finalRoute = `https://www.google.com/maps/dir/?api=1&origin=${placesList[0]}&destination=${placesList[0]}&waypoints=${placeName1}|${placeName2}|${placeName3}&waypoint_place_id:${placeId1}|${placeId2}|${placeId3}&travelmode=walking`
+  location.href = finalRoute
 }
 
 async function handleAddressField() {
