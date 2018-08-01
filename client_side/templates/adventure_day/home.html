@@ -2,17 +2,17 @@
 {% block content %}
 <div class="container">
   <div class="form-group row">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-4 col-md-4">
       <label for="start-address">Start:</label>
       <input id="start-address-field" type="text" class="form-control" placeholder="Starting from...">
       <input type="button" value="Use my location" onclick="getCurrentLocation()" class="btn-default">
 
     </div>
-    <!-- <div class="col-xs-2">
+    <!-- <div class="col-xs-2 col-md-4">
       <label for="end-address">End:</label>
       <input id="end-address" type="text" class="form-control" placeholder="Ending at...">
     </div> -->
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-4">
       <label for="location-type-selector">What kind of locations?:</label>
       <select class="form-control" id="location-type-selector">
         <option>Cafe</option>
@@ -21,7 +21,7 @@
         <option>Museum</option>
       </select>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-4">
       <label for="radius-selector">Search radius?(meters):</label>
       <select class="form-control" id="radius-selector">
         <option>400</option>
