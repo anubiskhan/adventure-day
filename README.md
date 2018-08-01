@@ -79,7 +79,6 @@ Once you have a Google API key add it to ``.env`` en lieu of YOUR_SECRET_HERE on
 Run the command
 ```
 python3 manage.py runserver
-
 ```
 
 Now that you have the server running in your terminal, head to your browser and navigate to [localhost:8000](<http://localhost:8000>).
