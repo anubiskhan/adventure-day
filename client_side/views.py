@@ -31,6 +31,8 @@ def places(request):
     search_type = request.META['QUERY_STRING'].split('&')[3].split('=')[1]
     places = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius={radius}&type={type}&key={key}'.format(origin=origin, radius=radius, type=type, key=GOOGLE_MAPS_PLATFORM_API_KEY))
     places_list = places.json()['results']
+    if len(places_list) < 3:
+        return HttpResponse(json.dumps('Not enough places'))
     random.shuffle(places_list)
     if search_type == 'optimized':
         ordered_places = get_matrix(places_list[:3], origin)

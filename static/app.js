@@ -6,7 +6,11 @@ async function createAdventure(searchType) {
                           })
   let originString = createOrigin(addressInformation.results[0].geometry.location);
   let placesList = await getPlaces(originString, searchType)
-  let completeRoute = await getToWalking(placesList)
+  if (placesList == 'Not enough places') {
+    alert("I'm sorry, there aren't enough locations nearby. Try increasing the search radius or changing the location type!");
+  } else {
+    let completeRoute = await getToWalking(placesList)
+  }
 }
 
 function createOrigin(result) {
