@@ -18,7 +18,7 @@ This app was decide with ease of use in mind, and as such has a few barriers to 
 
 Once a user selects a route they will be taken to a Google Maps page or, if the user is on a mobile device, a Google Maps App. After that all one has to do is press 'Start' in the app and they will be off!
 <div style="text-align: center;">
-![Using Adventure Day in browser](static/adventure_day_mobile.gif)
+![Using Adventure Day in mobile](static/adventure_day_mobile.gif)
 </div>
 ## Setup for cloning and working in this project (Mac)
 
