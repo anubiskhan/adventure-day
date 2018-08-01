@@ -85,6 +85,10 @@ Now that you have the server running in your terminal, head to your browser and 
 
 You're all set! If you encountered any setup errors let me know in the comments. (Issues coming soon)
 
+## Traveling Salesman Problem
+
+One thing I was particularly excited to get implemented on this project is a TSP solution for finding the shortest route using the randomly generated places. 
+
 ## Additional Resources
 
 - [dj-database-url](https://pypi.org/project/dj-database-url/)
