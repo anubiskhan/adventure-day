@@ -17,9 +17,9 @@ This app was decide with ease of use in mind, and as such has a few barriers to 
 
 
 Once a user selects a route they will be taken to a Google Maps page or, if the user is on a mobile device, a Google Maps App. After that all one has to do is press 'Start' in the app and they will be off!
-<div style="text-align: center;">
-![Using Adventure Day in mobile](static/adventure_day_mobile.gif)
-</div>
+
+![Using Adventure Day in browser](static/adventure_day_mobile.gif)
+
 ## Setup for cloning and working in this project (Mac)
 
 You will need to have access to a text editor, I use [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/). You will also need [Python](https://wiki.python.org/moin/BeginnersGuide) and [Django](https://www.djangoproject.com/start/). I recommend using a software package management system, such as [Homebrew](https://docs.brew.sh/Installation) (*This is the one I use*).
