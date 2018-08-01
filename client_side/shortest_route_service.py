@@ -91,6 +91,4 @@ def shortest_route(matrix, lat_long_list):
                 # Convert variable indices to node indices in the displayed route.
                 route.append(place_lat_long[routing.IndexToNode(index)])
                 index = assignment.Value(routing.NextVar(index))
-            # route += str(place_lat_long[routing.IndexToNode(index)])
             return route
-            # return route.split(' -> ')
