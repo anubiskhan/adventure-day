@@ -44,32 +44,13 @@ def create_distance_callback(dist_matrix):
 
 def shortest_route(matrix, lat_long_list):
     place_lat_long = lat_long_list
-    dist_matrix = [
-        [
-        matrix['rows'][0]['elements'][0]['distance']['value'],
-        matrix['rows'][0]['elements'][1]['distance']['value'],
-        matrix['rows'][0]['elements'][2]['distance']['value'],
-        matrix['rows'][0]['elements'][3]['distance']['value']
-        ],
-        [
-        matrix['rows'][1]['elements'][0]['distance']['value'],
-        matrix['rows'][1]['elements'][1]['distance']['value'],
-        matrix['rows'][1]['elements'][2]['distance']['value'],
-        matrix['rows'][1]['elements'][3]['distance']['value']
-        ],
-        [
-        matrix['rows'][2]['elements'][0]['distance']['value'],
-        matrix['rows'][2]['elements'][1]['distance']['value'],
-        matrix['rows'][2]['elements'][2]['distance']['value'],
-        matrix['rows'][2]['elements'][3]['distance']['value']
-        ],
-        [
-        matrix['rows'][3]['elements'][0]['distance']['value'],
-        matrix['rows'][3]['elements'][1]['distance']['value'],
-        matrix['rows'][3]['elements'][2]['distance']['value'],
-        matrix['rows'][3]['elements'][3]['distance']['value']
-        ]
-    ]
+    dist_matrix = []
+    for x in range(0, 4):
+        sub_dist_matrix = []
+        for y in range(0, 4):
+            sub_dist_matrix.append(matrix['rows'][x]['elements'][y]['distance']['value'])
+        dist_matrix.append(sub_dist_matrix)
+    import pdb; pdb.set_trace()
 
     tsp_size = len(place_lat_long)
     num_routes = 1
