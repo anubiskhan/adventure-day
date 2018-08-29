@@ -30,7 +30,7 @@ Now that you have a window open and enter the following command to install Homeb
 ```
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 ```
-Once the installation completes enter the command
+Once the installation completes enter the command (this installation can take several minutes)
 ```
 brew install python3
 ```
@@ -40,7 +40,7 @@ git clone git@github.com:YOUR_USER_NAME_HERE/adventure-day.git
 ```
 Change directories into the repo, and create a virtual environment
 ```
-python3 -m venv .env
+python3 -m venv YOUR_ENVIRONMENT_NAME
 ```
 Next, you'll want to install the required packages for the project
 ```
