@@ -30,13 +30,14 @@ def places(request):
     type = request.META['QUERY_STRING'].split('&')[1].split('=')[1].lower()
     radius = request.META['QUERY_STRING'].split('&')[2].split('=')[1]
     search_type = request.META['QUERY_STRING'].split('&')[3].split('=')[1]
-    places = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius={radius}&type={type}&key={key}'.format(origin=origin, radius=radius, type=type, key=GOOGLE_MAPS_PLATFORM_API_KEY))
+    search_number = request.META['QUERY_STRING'].split('&')[4].split('=')[1]
+    places = requests.get(f'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={origin}&radius={radius}&type={type}&key={GOOGLE_MAPS_PLATFORM_API_KEY}')
     places_list = places.json()['results']
-    if len(places_list) < 3:
+    if len(places_list) < search_number:
         return HttpResponse(json.dumps('Not enough places'))
     random.shuffle(places_list)
-    waypoints = places_list[:3]
-    if search_type == 'optimized':
+    waypoints = places_list[:search_number]
+    if search_type == 'optimized' and search_number > 1:
         ordered_places = get_matrix(waypoints, origin)
     else:
         ordered_places = get_random_order(waypoints, origin)

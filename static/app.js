@@ -19,8 +19,9 @@ function createOrigin(result) {
 
 function getPlaces(origin, searchType) {
   var locationType = document.getElementById('location-type-selector').value;
+  var locationNumber = document.getElementById('location-number-selector').value;
   var searchRadius = document.getElementById('radius-selector').value;
-  return fetch(`places/?origin=${origin}&type=${locationType}&radius=${searchRadius}&search=${searchType}`)
+  return fetch(`places/?origin=${origin}&type=${locationType}&radius=${searchRadius}&search=${searchType}&number=${locationNumber}`)
   .then(response => {
     return response.json();
   })

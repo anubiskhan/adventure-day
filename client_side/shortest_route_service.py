@@ -11,18 +11,24 @@ def get_matrix(array, origin):
     names = name_parse(array)
     places = place_parse(array)
     ids = id_parse(array)
-    lat_long_list = [origin, [names[0], ids[0]], [names[1], ids[1]], [names[2], ids[2]]]
+    # lat_long_list = [origin, [names[0], ids[0]], [names[1], ids[1]], [names[2], ids[2]]]
+    lat_long_list = [origin]
+    for i in range(len(array)):
+        lat_long_list.append([names[i], ids[i]])
     '''
     MAKE THE URL DYNAMIC, WILL ALSO NEED TO CHANGE APP JS
     '''
-    response = requests.get(f'https://maps.googleapis.com/maps/api/distancematrix/json?origins={origin}|{places[0]}|{places[1]}|{places[3]}&destinations={origin}|{places[0]}|{places[1]}|{place_3}&mode=walking&key={key}')
+    locations_string = '{origin}|{places[0]}|{places[1]}|{places[2]}'
+    response = requests.get(f'https://maps.googleapis.com/maps/api/distancematrix/json?origins={locations_string}&destinations={locations_string}&mode=walking&key={GOOGLE_MAPS_PLATFORM_API_KEY}')
     returned_matrix = response.json()
     return shortest_route(returned_matrix, lat_long_list)
 
 def get_random_order(array, origin):
     names = name_parse(array)
     ids = id_parse(array)
-    lat_long_list = [origin, [names[0], ids[0]], [names[1], ids[1]], [names[2], ids[2]]]
+    lat_long_list = [origin]
+    for i in range(len(array)):
+        lat_long_list.append([names[i], ids[i]])
     return lat_long_list
 
 def create_distance_callback(dist_matrix):
